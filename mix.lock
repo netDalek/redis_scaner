@@ -1,0 +1,3 @@
+%{
+  "eredis_sync": {:hex, :eredis_sync, "0.1.2", "4df56d042fb0e918a7a61600a900b943ec93008418d923a110637b96b4771c5e", [:rebar3], [], "hexpm"},
+}
