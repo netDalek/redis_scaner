@@ -20,7 +20,7 @@ defmodule RedisScaner.CLI do
       IO.puts :stderr, "#{cnt*1000/total}%%"
     end
     for k <- keys do
-      {:ok, res} = :eredis_sync.q(conn, ["TTL", k])
+      {:ok, res} = :eredis_sync.q(conn, ["OBJECT", "IDLETIME", k])
       ttl = String.to_integer(res)
       if ttl == -1 || ttl > 259_800 do
         IO.puts "#{k} - #{ttl}"
