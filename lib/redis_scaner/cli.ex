@@ -16,7 +16,7 @@ defmodule RedisScaner.CLI do
   end
   def scan(conn, id, cnt, inc, total) do
     {:ok, [new_id, keys]} = :eredis_sync.q(conn, ["SCAN", id])
-    if rem(inc, 10) == 0 do
+    if rem(inc, 1000) == 0 do
       IO.puts :stderr, "#{cnt*1000/total}%%"
     end
     for k <- keys do
